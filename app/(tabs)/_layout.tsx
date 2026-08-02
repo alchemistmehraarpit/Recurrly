@@ -8,6 +8,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const tabBar = components.tabBar;
 
+// Without this the group has no declared entry point, so the landing tab depends
+// on the order of `tabs`. Signing in should always arrive on Home.
+export const unstable_settings = {
+    anchor: 'index',
+};
+
 const TabLayout = () => {
     const insets = useSafeAreaInsets();
     const TabIcon = ({ focused, icon }: TabIconProps) => {

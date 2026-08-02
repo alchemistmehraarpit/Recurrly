@@ -1,4 +1,5 @@
-import type { ImageSourcePropType } from "react-native";
+import type { ImageSourcePropType, TextInputProps } from "react-native";
+import type { ReactNode } from "react";
 
 declare global {
     interface AppTab {
@@ -49,6 +50,31 @@ declare global {
 
     interface ListHeadingProps {
         title: string;
+    }
+
+    interface AuthLayoutProps {
+        title: string;
+        subtitle: string;
+        children: ReactNode;
+    }
+
+    interface AuthFieldProps extends TextInputProps {
+        label: string;
+        error?: string | null;
+        /** Renders a Show/Hide toggle and masks the value by default. */
+        isPassword?: boolean;
+    }
+
+    interface AuthSubmitButtonProps {
+        label: string;
+        onPress: () => void;
+        disabled?: boolean;
+        isSubmitting?: boolean;
+    }
+
+    interface SsoButtonsProps {
+        /** Disables the providers while an email/password submit is in flight. */
+        disabled?: boolean;
     }
 }
 
